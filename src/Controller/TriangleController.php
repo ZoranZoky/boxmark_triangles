@@ -19,7 +19,7 @@ class TriangleController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/triangle/{a}/{b}/{c}", name="triangle", requirements={"a"="\d+","b"="\d+","c"="\d+"})
+     * @Route("/triangle/{a}/{b}/{c}", methods={"POST"}, name="triangle", requirements={"a"="\d+","b"="\d+","c"="\d+"})
      */
     public function index(int $a, int $b, int $c)
     {   $this->entityManager = $this->getDoctrine()->getManager(); 
