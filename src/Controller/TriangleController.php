@@ -19,19 +19,16 @@ class TriangleController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/triangle/{a}/{b}/{c}", methods={"POST"}, name="triangle", requirements={"a"="\d+","b"="\d+","c"="\d+"})
+     * @Route("/triangle/{a}/{b}/{c}", name="triangle", requirements={"a"="\d+","b"="\d+","c"="\d+"})
      */
-    public function index(string $a, string $b, string $c)
-    {
+    public function index(int $a, int $b, int $c)
+    {   $this->entityManager = $this->getDoctrine()->getManager(); 
         $triangle = new Triangle();
         $triangle->setA($a);
         $triangle->setB($b);
         $triangle->setC($c);
-        var_dump($triangle);
-        echo $triangle->calculateArea();
-        /*$this->entityManager->persist($triangle);
-        $this->entityManager->flush();*/
-        echo $a;
+        $this->entityManager->persist($triangle);
+        $this->entityManager->flush();
         return new Response('Successfully saved to database!');
     }  
 }

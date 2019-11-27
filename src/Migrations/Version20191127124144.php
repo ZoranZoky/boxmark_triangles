@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191125193448 extends AbstractMigration
+final class Version20191127124144 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,7 @@ final class Version20191125193448 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE triangle (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)');
+        $this->addSql('CREATE TABLE triangle (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, a NUMERIC(10, 4) NOT NULL, b NUMERIC(10, 4) NOT NULL, c NUMERIC(10, 4) NOT NULL)');
     }
 
     public function down(Schema $schema) : void
