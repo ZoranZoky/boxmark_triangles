@@ -21,14 +21,17 @@ class TriangleController extends AbstractController
     /**
      * @Route("/triangle/{a}/{b}/{c}", methods={"POST"}, name="triangle", requirements={"a"="\d+","b"="\d+","c"="\d+"})
      */
-    public function index(int $a, int $b, int $c)
+    public function index(string $a, string $b, string $c)
     {
         $triangle = new Triangle();
         $triangle->setA($a);
         $triangle->setB($b);
         $triangle->setC($c);
-        $this->entityManager->persist($triangle);
-        $this->entityManager->flush();
+        var_dump($triangle);
+        echo $triangle->calculateArea();
+        /*$this->entityManager->persist($triangle);
+        $this->entityManager->flush();*/
+        echo $a;
         return new Response('Successfully saved to database!');
     }  
 }

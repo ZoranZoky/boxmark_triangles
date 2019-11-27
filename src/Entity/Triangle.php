@@ -75,8 +75,8 @@ class Triangle
         return $this->a+$this->b+$this->c;
     }
     public function calculateArea(){
-        $p = calculateCircumference()/2;
-        return sqrt($p*($p-$this->a)*($p-$this->b)*($p-$this>-c));
+        $p = ($this->a+$this->b+$this->c)/2;
+        return sqrt($p*($p-$this->a)*($p-$this->b)*($p-$this->c));
         
     }
 }
